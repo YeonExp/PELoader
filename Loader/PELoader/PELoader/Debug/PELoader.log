@@ -1,0 +1,5 @@
+﻿  PELoader_impl.cpp
+e:\github\pe\loader\peloader\peloader\peloader_impl.cpp(13): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\github\pe\loader\peloader\peloader\peloader_impl.cpp(67): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  PELoader.vcxproj -> E:\GitHub\PE\Loader\PELoader\Debug\PELoader.exe
+  PELoader.vcxproj -> E:\GitHub\PE\Loader\PELoader\Debug\PELoader.pdb (Full PDB)
