@@ -106,11 +106,29 @@ const unsigned long PELoaderImpl::generateImportDirectory()
 	return 1;
 }
 
-const void PELoaderImpl::printImportDirectory() const
+const void PELoaderImpl::printImportDirectory()
 {
+	char c;
 	char moduleName[256] = { 0 };
 	for (int i = 0; i < modules; i++)
 	{
+		unsigned int count = 0;
 		ZeroMemory(moduleName, 256);
+		inFile.seekg(idp[i]->NameRVA);
+		while (true)
+		{
+			c = inFile.get();
+			if (c == '\0') break;
+			moduleName[count] = c;
+			count++;
+		}
+		std::cout << "-------------------------------------" << std::endl;
+		std::cout << "[INFO] Module Name : " << moduleName << std::endl;
+		std::cout << "[INFO] INT : " << std::hex << idp[i]->OFTs << std::endl;
+		std::cout << "[INFO] TimeDateStamp : " << std::hex << idp[i]->TimeDateStamp << std::endl;
+		std::cout << "[INFO] ForwarderChain : " << std::hex << idp[i]->ForwarderChain << std::endl;
+		std::cout << "[INFO] Name RVA : " << std::hex << idp[i]->NameRVA << std::endl;
+		std::cout << "[INFO] IAT : " << std::hex << idp[i]->FTs << std::endl;
+		std::cout << "-------------------------------------" << std::endl;
 	}
 }

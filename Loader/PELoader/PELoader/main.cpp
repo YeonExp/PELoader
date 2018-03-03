@@ -7,5 +7,6 @@ int main()
 	peLoader->loadSections();
 
 	peLoader->generateImportDirectory();
+	peLoader->printImportDirectory();
 	return 0;
 }

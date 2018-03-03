@@ -10,7 +10,7 @@ public:
 	const void loadSections();
 	const void setSections(unsigned long sections);
 	const unsigned long generateImportDirectory();
-	const void printImportDirectory() const;
+	const void printImportDirectory();
 private:
 	struct PEInfo
 	{

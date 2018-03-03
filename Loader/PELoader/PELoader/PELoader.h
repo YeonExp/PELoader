@@ -9,6 +9,7 @@ public:
 	const BOOL loadExeFile();
 	const void loadSections();
 	const unsigned long generateImportDirectory();
+	const void printImportDirectory();
 private:
 	std::tr1::shared_ptr<PELoaderImpl> peImpl;
 	/*
