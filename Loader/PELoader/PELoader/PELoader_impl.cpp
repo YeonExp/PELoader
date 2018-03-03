@@ -4,6 +4,7 @@ PELoaderImpl::PELoaderImpl(std::string fileName) : peFileName(fileName)
 {
 	std::cout << "[INFO] PE File Setting Complete" << std::endl;
 }
+
 PELoaderImpl::~PELoaderImpl() 
 {
 	try {
@@ -24,7 +25,9 @@ PELoaderImpl::~PELoaderImpl()
 	{
 		std::cerr << "[ERROR] Error Code : " << dwError << std::endl;
 	}
+	std::cout << "[INFO] PELoaderImpl::~PELoaderImpl()" << std::endl;
 }
+
 const BOOL PELoaderImpl::loadExeFile()
 {
 	inFile = std::ifstream(peFileName.c_str(), std::ios_base::in | std::ios_base::binary);
@@ -71,4 +74,43 @@ const void PELoaderImpl::setSections(unsigned long sections)
 		// std::cout << peData->SectionArray[i]->Name << std::endl;
 	}
 	std::cout << "[INFO] PELoaderImpl::setSections(unsigned long sections)" << std::endl;
+}
+
+const unsigned long PELoaderImpl::generateImportDirectory()
+{
+	unsigned long rawImport = peData->NtHeader->OptionalHeader.DataDirectory[1].VirtualAddress;
+	unsigned long rawSize = peData->NtHeader->OptionalHeader.DataDirectory[1].Size;
+
+	modules = rawSize / 0x14;
+	if (modules >= 1)
+	{
+		try
+		{
+			idp = new PIMAGE_IMPORT_DESCRIPTOR[modules];
+		}
+		catch(DWORD dwError)
+		{
+			std::cerr << "[ERROR] Memory Allocation Failed.. (PELoaderImpl::generateImportDirectory()" << std::endl;
+			return -1;
+		}
+		for (int i = 0; i < modules; i++)
+		{
+			idp[i] = new IMAGE_IMPORT_DESCRIPTOR();
+			inFile.seekg(rawImport);
+			inFile.read((char *)idp[i], sizeof(IMAGE_IMPORT_DESCRIPTOR));
+
+			rawImport += sizeof(IMAGE_IMPORT_DESCRIPTOR);
+		}
+	}
+	std::cout << "[SUCCESS] PELoaderImpl::generateImportDirectory()" << std::endl;
+	return 1;
+}
+
+const void PELoaderImpl::printImportDirectory() const
+{
+	char moduleName[256] = { 0 };
+	for (int i = 0; i < modules; i++)
+	{
+		ZeroMemory(moduleName, 256);
+	}
 }

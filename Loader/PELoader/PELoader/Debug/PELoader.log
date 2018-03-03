@@ -1,5 +1,13 @@
 ﻿  PELoader_impl.cpp
-e:\github\pe\loader\peloader\peloader\peloader_impl.cpp(13): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\github\pe\loader\peloader\peloader\peloader_impl.cpp(67): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\github\pe\loader\peloader\peloader\peloader_impl.cpp(14): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\github\pe\loader\peloader\peloader\peloader_impl.cpp(70): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\github\pe\loader\peloader\peloader\peloader_impl.cpp(96): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\github\pe\loader\peloader\peloader\peloader_impl.cpp(91): warning C4101: 'dwError' :참조되지 않은 지역 변수입니다.
+e:\github\pe\loader\peloader\peloader\peloader_impl.cpp(112): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  main.cpp
+  PELoader.cpp
+  코드를 생성하고 있습니다...
   PELoader.vcxproj -> E:\GitHub\PE\Loader\PELoader\Debug\PELoader.exe
   PELoader.vcxproj -> E:\GitHub\PE\Loader\PELoader\Debug\PELoader.pdb (Full PDB)

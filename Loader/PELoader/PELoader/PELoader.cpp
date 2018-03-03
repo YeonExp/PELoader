@@ -19,3 +19,10 @@ const void PELoader::loadSections()
 {
 	return peImpl->loadSections();
 }
+
+
+
+const unsigned long PELoader::generateImportDirectory()
+{
+	return peImpl->generateImportDirectory();
+}

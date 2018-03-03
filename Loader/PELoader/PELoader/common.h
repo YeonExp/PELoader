@@ -4,6 +4,7 @@
 #include <memory>
 #include <vector>
 
+#define ZeroMemory(Destination, Length) memset((Destination), 0, (Length));
 const int IMAGE_NUMBEROF_DIRECTORY_ENTRIES = 16;
 const int IMAGE_SIZEOF_SECTION_HEADER = 40;
 const int IMAGE_SIZEOF_SHORT_NAME = 8;
@@ -115,3 +116,12 @@ typedef struct _IMAGE_SECTION_HEADER
 	WORD NumberOfLinenumbers;
 	DWORD Characteristics;
 } IMAGE_SECTION_HEADER, *PIMAGE_SECTION_HEADER;
+
+typedef struct _IMAGE_IMPORT_DESCRIPTOR
+{
+	DWORD OFTs;
+	DWORD TimeDateStamp;
+	DWORD ForwarderChain;
+	DWORD NameRVA;
+	DWORD FTs;
+} IMAGE_IMPORT_DESCRIPTOR, *PIMAGE_IMPORT_DESCRIPTOR;

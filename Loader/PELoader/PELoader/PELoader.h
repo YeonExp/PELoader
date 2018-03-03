@@ -5,10 +5,10 @@ class PELoader
 {
 public:
 	PELoader(std::string fileName);
-	~PELoader();
+	virtual ~PELoader();
 	const BOOL loadExeFile();
 	const void loadSections();
-	const void setSections(unsigned long sections);
+	const unsigned long generateImportDirectory();
 private:
 	std::tr1::shared_ptr<PELoaderImpl> peImpl;
 	/*
